@@ -21,14 +21,16 @@ export default class PlanetRandom extends Component {
   onPlanetLoaded = (planet) => {
     return this.setState({
       planet,
-      loading: false
+      loading: false,
+      error: false
     });
   }
 
   onError = () => {
     this.setState({
-      error: true
-    })
+      error: true,
+      loading: false
+    });
   }
 
   updatePlanet() {
