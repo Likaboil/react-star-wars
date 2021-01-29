@@ -7,11 +7,7 @@ export default class PlanetRandom extends Component {
   swapiService = new SwapiService();
 
   state = {
-    id: null,
-    name: null,
-    population: null,
-    rotationPeriod: null,
-    diameter: null
+    planet: {}
   }
 
   constructor() {
@@ -30,7 +26,7 @@ export default class PlanetRandom extends Component {
 
   render() {
 
-    const {id, name, population, rotationPeriod, diameter} = this.state;
+    const {planet: {id, name, population, rotationPeriod, diameter}} = this.state;
 
     return (
       <div className="planet-random jumbotron rounded">
