@@ -6,6 +6,7 @@
     height: 0;
     opacity: 1;
   }
+
   100% {
     top: 9.27px;
     left: 9.27px;
@@ -41,12 +42,16 @@
   overflow: hidden;
   background: transparent;
 }
+
 .ldio-bpauznwbn4m {
   width: 100%;
   height: 100%;
   position: relative;
   transform: translateZ(0) scale(1);
   backface-visibility: hidden;
-  transform-origin: 0 0; /* see note above */
+  transform-origin: 0 0;
 }
-.ldio-bpauznwbn4m div { box-sizing: content-box; }
+
+.ldio-bpauznwbn4m div {
+  box-sizing: content-box;
+}
