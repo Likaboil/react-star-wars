@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SwapiService from '../../api'
+import SwapiService from '../../api';
+import Spinner from '../spinner';
 import './planet-random.css';
 
 export default class PlanetRandom extends Component {
@@ -30,29 +31,35 @@ export default class PlanetRandom extends Component {
 
     return (
       <div className="planet-random jumbotron rounded">
-        <img className="planet-image"
-             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
-             alt={name}
-             />
-        <div>
-          <h4>{name}</h4>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              <span className="term">Population</span>
-              <span>{population}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Rotation Period</span>
-              <span>{rotationPeriod}</span>
-            </li>
-            <li className="list-group-item">
-              <span className="term">Diameter</span>
-              <span>{diameter}</span>
-            </li>
-          </ul>
-        </div>
+        <Spinner />
       </div>
-
     );
+
+    // return (
+    //   <div className="planet-random jumbotron rounded">
+    //     <img className="planet-image"
+    //          src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+    //          alt={name}
+    //          />
+    //     <div>
+    //       <h4>{name}</h4>
+    //       <ul className="list-group list-group-flush">
+    //         <li className="list-group-item">
+    //           <span className="term">Population</span>
+    //           <span>{population}</span>
+    //         </li>
+    //         <li className="list-group-item">
+    //           <span className="term">Rotation Period</span>
+    //           <span>{rotationPeriod}</span>
+    //         </li>
+    //         <li className="list-group-item">
+    //           <span className="term">Diameter</span>
+    //           <span>{diameter}</span>
+    //         </li>
+    //       </ul>
+    //     </div>
+    //   </div>
+
+    // );
   }
 }
