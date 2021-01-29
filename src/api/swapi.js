@@ -39,4 +39,19 @@ export default class SwapiService {
   getStarship(id) {
     return this.getResource(`/starships/${id}/`);
   }
+
+  extractId(item) {
+    const idRegExp = /\/([0-9]*)\/$/;
+    return item.url.match(idRegExp)[1];
+  }
+
+  _transformPlanet(planet) {
+    return {
+      id: this.extractId(planet),
+      name: planet.name,
+      population: planet.population,
+      rotationPeriod: planet.rotation_period,
+      diameter: planet.diameter
+    }
+  }
 }
