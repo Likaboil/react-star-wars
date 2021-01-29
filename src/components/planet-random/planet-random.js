@@ -8,7 +8,8 @@ export default class PlanetRandom extends Component {
   swapiService = new SwapiService();
 
   state = {
-    planet: {}
+    planet: {},
+    loading: true
   }
 
   constructor() {
@@ -16,7 +17,12 @@ export default class PlanetRandom extends Component {
     this.updatePlanet();
   }
 
-  onPlanetLoaded = (planet) => this.setState({planet});
+  onPlanetLoaded = (planet) => {
+    return this.setState({
+      planet,
+      loading: false
+    });
+  }
 
   updatePlanet() {
     const id = Math.floor(Math.random()*25+2);
@@ -27,7 +33,8 @@ export default class PlanetRandom extends Component {
 
   render() {
 
-    const {planet: {id, name, population, rotationPeriod, diameter}} = this.state;
+    const {planet: {id, name, population, rotationPeriod, diameter},
+          loading} = this.state;
 
     return (
       <div className="planet-random jumbotron rounded">
