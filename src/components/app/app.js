@@ -8,10 +8,15 @@ import PersonDetails from '../person-details';
 
 
 const App = () => {
+
   return (
-    <div>
+    <div className="stardb-app">
       <Header />
       <PlanetRandom />
+      <button className="toggle-planet btn btn-warning btn-lg"
+        >
+        Toggle Random Planet
+      </button>
       <div className="row">
         <div className="col-md-6">
           <ItemList />
@@ -21,7 +26,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default App;
