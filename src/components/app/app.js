@@ -9,6 +9,18 @@ import PersonDetails from '../person-details';
 
 export default class App extends Component {
 
+  state = {
+    showRandomPlanet: true,
+  };
+
+  toggleRandomPlanet = () => {
+    this.setState((state) => {
+      return {
+        showRandomPlanet: !state.showRandomPlanet
+      }
+    });
+  };
+
   render() {
 
     return (
@@ -16,7 +28,7 @@ export default class App extends Component {
         <Header />
         <PlanetRandom />
         <button className="toggle-planet btn btn-warning btn-lg"
-          >
+          onClick={this.toggleRandomPlanet} >
           Toggle Random Planet
         </button>
         <div className="row">
