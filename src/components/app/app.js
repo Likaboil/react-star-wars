@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './app.css';
 
 import Header from '../header';
@@ -7,26 +7,27 @@ import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 
 
-const App = () => {
+export default class App extends Component {
 
-  return (
-    <div className="stardb-app">
-      <Header />
-      <PlanetRandom />
-      <button className="toggle-planet btn btn-warning btn-lg"
-        >
-        Toggle Random Planet
-      </button>
-      <div className="row">
-        <div className="col-md-6">
-          <ItemList />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails />
+  render() {
+
+    return (
+      <div className="stardb-app">
+        <Header />
+        <PlanetRandom />
+        <button className="toggle-planet btn btn-warning btn-lg"
+          >
+          Toggle Random Planet
+        </button>
+        <div className="row">
+          <div className="col-md-6">
+            <ItemList />
+          </div>
+          <div className="col-md-6">
+            <PersonDetails />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
-export default App;
