@@ -34,13 +34,12 @@ export default class PlanetRandom extends Component {
     });
   }
 
-  updatePlanet() {
+  updatePlanet = () => {
     const id = Math.floor(Math.random()*25+2);
-
     this.swapiService
-          .getPlanet(id)
-          .then(this.onPlanetLoaded)
-          .catch(this.onError);
+      .getPlanet(id)
+      .then(this.onPlanetLoaded)
+      .catch(this.onError);
   };
 
   render() {
