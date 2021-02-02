@@ -11,6 +11,20 @@ export default class PersonDetails extends Component {
     person: null,
   }
 
+  updatePerson() {
+    const {personId} = this.props;
+
+    if(!personId) {
+      return;
+    };
+
+    this.swapiService
+      .getPerson(personId)
+      .then((person) => {
+        this.setState({person});
+      })
+  }
+
   render() {
     return (
       <div className="person-details card">
