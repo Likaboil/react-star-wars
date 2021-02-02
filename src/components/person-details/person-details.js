@@ -26,6 +26,11 @@ export default class PersonDetails extends Component {
   }
 
   render() {
+
+    if (!this.state.person) {
+      return <span>Select a person from a list</span>;
+    }
+
     return (
       <div className="person-details card">
         <img className="person-image"
