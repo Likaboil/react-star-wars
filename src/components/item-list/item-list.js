@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
+import SwapiService from '../../api';
 import './item-list.css';
 
 export default class ItemList extends Component {
 
+  swapiService = new SwapiService();
+
+  state = {
+    peopleList: null,
+  }
+
+  componentDidMount() {
+    this.swapiService
+      .getAllPeople()
+      .then((peopleList) => {
+        this.setState({
+          peopleList
+        });
+      });
+  }
+
   render() {
+    const {peopleList} = this.state;
+
     return (
       <ul className="item-list list-group">
         <li className="list-group-item">
