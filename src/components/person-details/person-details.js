@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import SwapiService from '../../api';
 
 import './person-details.css';
 
 export default class PersonDetails extends Component {
+
+  swapiService = new SwapiService()
+
+  state = {
+    person: null,
+  }
 
   render() {
     return (
