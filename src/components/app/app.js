@@ -22,11 +22,12 @@ export default class App extends Component {
   };
 
   render() {
+    const planet = this.state.showRandomPlanet ? <PlanetRandom /> :  null;
 
     return (
       <div className="stardb-app">
         <Header />
-        <PlanetRandom />
+        {planet}
         <button className="toggle-planet btn btn-warning btn-lg"
           onClick={this.toggleRandomPlanet} >
           Toggle Random Planet
