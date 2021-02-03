@@ -37,9 +37,9 @@ export default class PeoplePage extends Component {
 
     const itemList = (
       <ItemList onItemSelected={this.onPersonSelected}
-          getData={getAllPeople}
-          renderItem={({name, gender, birthYear}) => `${name} (${gender} ${birthYear})`}
-      />
+          getData={getAllPeople} >
+        {(item) => `${item.name} (${item.birthYear})`}
+      </ItemList>
     );
 
     const itemDetails = (
