@@ -5,6 +5,7 @@ import Header from '../header';
 import PlanetRandom from '../planet-random';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
+import ErrorButton from '../error-button';
 
 
 export default class App extends Component {
@@ -39,6 +40,7 @@ export default class App extends Component {
           onClick={this.toggleRandomPlanet} >
           Toggle Random Planet
         </button>
+        <ErrorButton />
         <div className="row">
           <div className="col-md-6">
             <ItemList onItemSelected={this.onPersonSelected} />
