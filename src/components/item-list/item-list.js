@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import './item-list.css';
 
-export default class ItemList extends Component {
+ class ItemList extends Component {
 
   state = {
     itemList: null,
@@ -50,3 +50,14 @@ export default class ItemList extends Component {
     );
   }
 }
+
+const HocItemList = () => {
+  return class extends Component {
+
+    render() {
+      return <ItemList {...this.props}/>
+    }
+  }
+}
+
+export default HocItemList();
