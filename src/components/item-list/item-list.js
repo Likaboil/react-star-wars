@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import Spinner from '../spinner';
+import React from 'react';
+import SwapiService from '../../api';
+import HocItemList from '../hoc'
+
 import './item-list.css';
 
 const ItemList = (props) => {
@@ -25,33 +27,6 @@ const ItemList = (props) => {
   );
 };
 
-const HocItemList = (ElementList) => {
-  return class extends Component {
-    state = {
-      listData: null,
-    }
+const {getAllPeople} = new SwapiService();
 
-    componentDidMount() {
-      const {getData} = this.props;
-
-      getData()
-        .then((listData) => {
-          this.setState({
-            listData
-          });
-        });
-    }
-
-    render() {
-      const {listData} = this.state;
-
-      if(!listData) {
-        return <Spinner />;
-      };
-
-      return <ElementList {...this.props} listData={listData}/>;
-    }
-  };
-};
-
-export default HocItemList(ItemList);
+export default HocItemList(ItemList, getAllPeople);
