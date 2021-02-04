@@ -6,6 +6,7 @@ import ItemDetails from '../item-details/item-details';
 import SwapiService from '../../api';
 import Row from '../row';
 import ErrorBoundry from '../error-boundry/error-boundry';
+import Content from '../item-details-content';
 
 export default class PeoplePage extends Component {
 
@@ -34,8 +35,10 @@ export default class PeoplePage extends Component {
       <ErrorBoundry>
         <ItemDetails itemId={selectedPerson}
             getData={getPerson}
-            getImageUrl={getPersonImage}
-        />
+            getImageUrl={getPersonImage} >
+            <Content field="gender" label="Gender" />
+            <Content field="eyeColor" label="Eye Color" />
+        </ItemDetails>
       </ErrorBoundry>
     );
 
