@@ -2,33 +2,27 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import './item-list.css';
 
- class ItemList extends Component {
+const ItemList = (props) => {
+  const {listData, onItemSelected, children: renderLabel} = props;
 
-  renderItems(arr) {
-    return arr.map((item) => {
-      const {id} = item;
-      const label = this.props.children(item);
-
-      return (
-        <li className="list-group-item"
-            key={id}
-            onClick={() => this.props.onItemSelected(id)} >
-          {label}
-        </li>
-      );
-    });
-  }
-
-  render() {
-    const {listData} = this.props;
-    const items = this.renderItems(listData);
+  const items = listData.map((item) => {
+    const {id} = item;
+    const label = renderLabel(item);
 
     return (
-      <ul className="item-list list-group">
-        {items}
-      </ul>
+      <li className="list-group-item"
+          key={id}
+          onClick={() => onItemSelected(id)} >
+        {label}
+      </li>
     );
-  }
+  });
+
+  return (
+    <ul className="item-list list-group">
+      {items}
+    </ul>
+  );
 };
 
 const HocItemList = (ElementList) => {
