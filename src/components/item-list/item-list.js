@@ -31,7 +31,7 @@ import './item-list.css';
   }
 };
 
-const HocItemList = () => {
+const HocItemList = (ElementList) => {
   return class extends Component {
     state = {
       listData: null,
@@ -55,9 +55,9 @@ const HocItemList = () => {
         return <Spinner />;
       };
 
-      return <ItemList {...this.props} listData={listData}/>;
+      return <ElementList {...this.props} listData={listData}/>;
     }
   };
 };
 
-export default HocItemList();
+export default HocItemList(ItemList);
