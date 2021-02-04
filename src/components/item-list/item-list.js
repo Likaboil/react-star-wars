@@ -4,21 +4,6 @@ import './item-list.css';
 
  class ItemList extends Component {
 
-  state = {
-    itemList: null,
-  }
-
-  componentDidMount() {
-
-    const {getData} = this.props;
-
-    getData()
-      .then((itemList) => {
-        this.setState({itemList
-        });
-      });
-  }
-
   renderItems(arr) {
     return arr.map((item) => {
       const {id} = item;
@@ -35,13 +20,8 @@ import './item-list.css';
   }
 
   render() {
-    const {itemList} = this.state;
-
-    if(!itemList) {
-      return <Spinner />
-    };
-
-    const items = this.renderItems(itemList);
+    const {listData} = this.props;
+    const items = this.renderItems(listData);
 
     return (
       <ul className="item-list list-group">
@@ -49,15 +29,35 @@ import './item-list.css';
       </ul>
     );
   }
-}
+};
 
 const HocItemList = () => {
   return class extends Component {
+    state = {
+      listData: null,
+    }
+
+    componentDidMount() {
+      const {getData} = this.props;
+
+      getData()
+        .then((listData) => {
+          this.setState({
+            listData
+          });
+        });
+    }
 
     render() {
-      return <ItemList {...this.props}/>
+      const {listData} = this.state;
+
+      if(!listData) {
+        return <Spinner />;
+      };
+
+      return <ItemList {...this.props} listData={listData}/>;
     }
-  }
-}
+  };
+};
 
 export default HocItemList();
