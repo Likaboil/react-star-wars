@@ -1,50 +1,65 @@
 import React from 'react';
 import ItemDetails from '../item-details';
 import Content from '../item-details-content';
-import SwapiService from '../../api';
-
-const swapiService = new SwapiService();
-
-const {
-  getPerson,
-  getPlanet,
-  getStarship,
-  getPersonImage,
-  getPlanetImage,
-  getStarshipImage
-} = swapiService;
+import {SwapiServiceConsumer} from '../swapi-service-context';
 
 const PersonDetails = ({itemId}) => {
   return (
-    <ItemDetails itemId={itemId}
-        getData={getPerson}
-        getImageUrl={getPersonImage} >
-      <Content field="gender" label="Gender" />
-      <Content field="eyeColor" label="Eye Color" />
-      <Content field="birthYear" label="Birth Year" />
-    </ItemDetails>
+    <SwapiServiceConsumer>
+     {
+       ({getPerson, getPersonImage}) => {
+         return (
+          <ItemDetails itemId={itemId}
+                getData={getPerson}
+                getImageUrl={getPersonImage} >
+            <Content field="gender" label="Gender" />
+            <Content field="eyeColor" label="Eye Color" />
+            <Content field="birthYear" label="Birth Year" />
+          </ItemDetails>
+         );
+       }
+     }
+    </SwapiServiceConsumer>
   );
 };
 
+
 const PlanetDetails = ({itemId}) => {
   return (
-    <ItemDetails itemId={itemId}
-        getData={getPlanet}
-        getImageUrl={getPlanetImage} >
-      <Content field="diameter" label="Diameter" />
-      <Content field="population" label="Population" />
-    </ItemDetails>
+
+    <SwapiServiceConsumer>
+     {
+       ({getPlanet, getPlanetImage}) => {
+         return (
+          <ItemDetails itemId={itemId}
+              getData={getPlanet}
+              getImageUrl={getPlanetImage} >
+            <Content field="diameter" label="Diameter" />
+            <Content field="population" label="Population" />
+          </ItemDetails>
+         );
+       }
+     }
+    </SwapiServiceConsumer>
   );
 };
 
 const StarshipDetails = ({itemId}) => {
   return (
-    <ItemDetails itemId={itemId}
-        getData={getStarship}
-        getImageUrl={getStarshipImage} >
-      <Content field="model " label="Model" />
-      <Content field="length" label="Length" />
-    </ItemDetails>
+    <SwapiServiceConsumer>
+     {
+       ({getStarship, getStarshipImage}) => {
+         return (
+          <ItemDetails itemId={itemId}
+              getData={getStarship}
+              getImageUrl={getStarshipImage} >
+            <Content field="model " label="Model" />
+            <Content field="length" label="Length" />
+           </ItemDetails>
+         );
+       }
+     }
+    </SwapiServiceConsumer>
   );
 };
 
