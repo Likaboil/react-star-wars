@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './people-page.css';
 
-import ItemList from '../item-list/item-list';
-import ItemDetails from '../item-details/item-details';
+import ItemList from '../item-list';
+import ItemDetails from '../item-details';
 import SwapiService from '../../api';
 import Row from '../row';
-import ErrorBoundry from '../error-boundry/error-boundry';
+import ErrorBoundry from '../error-boundry/';
 import Content from '../item-details-content';
 
 export default class PeoplePage extends Component {
@@ -25,10 +25,12 @@ export default class PeoplePage extends Component {
     const {selectedPerson} = this.state;
 
     const itemList = (
-      <ItemList onItemSelected={this.onPersonSelected}
+      <ErrorBoundry>
+        <ItemList onItemSelected={this.onPersonSelected}
           getData={getAllPeople} >
         {(item) => `${item.name} (${item.birthYear})`}
-      </ItemList>
+        </ItemList>
+      </ErrorBoundry>
     );
 
     const itemDetails = (
@@ -36,14 +38,16 @@ export default class PeoplePage extends Component {
         <ItemDetails itemId={selectedPerson}
             getData={getPerson}
             getImageUrl={getPersonImage} >
-            <Content field="gender" label="Gender" />
-            <Content field="eyeColor" label="Eye Color" />
+          <Content field="gender" label="Gender" />
+          <Content field="eyeColor" label="Eye Color" />
         </ItemDetails>
       </ErrorBoundry>
     );
 
     return (
-      <Row left={itemList} right={itemDetails} />
+      <ErrorBoundry>
+        <Row left={itemList} right={itemDetails} />
+      </ErrorBoundry>
     );
   }
 }
