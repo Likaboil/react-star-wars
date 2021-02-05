@@ -23,10 +23,9 @@ const withChildren = (Wrapped, fn) => {
   };
 };
 
-const ListWithChildren = withChildren(
-  ItemList,
-  (item) => `${item.name}`
-);
+const renderName = (item) => `${item.name}`;
+
+const ListWithChildren = withChildren(ItemList,renderName);
 
 const PersonList = HocItemList(ListWithChildren, getAllPeople);
 
