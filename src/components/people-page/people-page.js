@@ -20,30 +20,40 @@ export default class PeoplePage extends Component {
 
   state = {
     selectedPerson: null,
+    selectedPlanet: null,
+    selectedStarship: null
   }
 
   onPersonSelected = (selectedPerson) => {
     this.setState({selectedPerson});
   }
 
+  onPlanetSelected = (selectedPlanet) => {
+    this.setState({selectedPlanet});
+  }
+
+  onStarshipSelected = (selectedStarship) => {
+    this.setState({selectedStarship});
+  }
+
   render() {
-    const {selectedPerson} = this.state;
+    const {selectedPerson, selectedPlanet, selectedStarship} = this.state;
 
     const itemList = (
       <ErrorBoundry >
         <PersonList onItemSelected={this.onPersonSelected} />
-        <PlanetList onItemSelected={this.onPersonSelected} />
-        <StarshipList onItemSelected={this.onPersonSelected} />
+        <PlanetList onItemSelected={this.onPlanetSelected} />
+        <StarshipList onItemSelected={this.onStarshipSelected} />
       </ErrorBoundry>
     );
 
     const itemDetails = (
       <ErrorBoundry>
-        <PersonDetails itemId={3}>
+        <PersonDetails itemId={selectedPerson}>
         </PersonDetails>
-        <PlanetDetails itemId={5}>
+        <PlanetDetails itemId={selectedPlanet}>
         </PlanetDetails>
-        <StarshipDetails itemId={9}>
+        <StarshipDetails itemId={selectedStarship}>
         </StarshipDetails>
       </ErrorBoundry>
     );
