@@ -12,11 +12,27 @@ const {
   getAllStarships
 } = swapiService;
 
-const PersonList = HocItemList(ItemList, getAllPeople);
 
-const PlanetList = HocItemList(ItemList, getAllPlanets);
+const withChildren = (Wrapped, fn) => {
+  return (props) => {
+    return (
+      <Wrapped {...props}>
+        {fn}
+      </Wrapped>
+    )
+  };
+};
 
-const StarshipList = HocItemList(ItemList, getAllStarships);
+const ListWithChildren = withChildren(
+  ItemList,
+  (item) => `${item.name}`
+);
+
+const PersonList = HocItemList(ListWithChildren, getAllPeople);
+
+const PlanetList = HocItemList(ListWithChildren, getAllPlanets);
+
+const StarshipList = HocItemList(ListWithChildren, getAllStarships);
 
 export {
   PersonList,

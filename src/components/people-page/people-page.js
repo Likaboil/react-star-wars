@@ -31,15 +31,9 @@ export default class PeoplePage extends Component {
 
     const itemList = (
       <ErrorBoundry >
-        <PersonList onItemSelected={this.onPersonSelected}>
-          {(item) => `${item.name}`}
-        </PersonList>
-        <PlanetList onItemSelected={this.onPersonSelected}>
-          {(item) => `${item.name}`}
-        </PlanetList>
-        <StarshipList onItemSelected={this.onPersonSelected}>
-          {(item) => `${item.name}`}
-        </StarshipList>
+        <PersonList onItemSelected={this.onPersonSelected} />
+        <PlanetList onItemSelected={this.onPersonSelected} />
+        <StarshipList onItemSelected={this.onPersonSelected} />
       </ErrorBoundry>
     );
 
