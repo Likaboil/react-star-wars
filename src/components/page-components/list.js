@@ -23,15 +23,20 @@ const withChildren = (Wrapped, fn) => {
   };
 };
 
-const renderName = (item) => `${item.name}`;
+const renderName = ({name}) => `${name}`;
+const renderModelandName = ({name, model}) => `${name} (${model})`;
 
-const ListWithChildren = withChildren(ItemList,renderName);
+const PersonList = HocItemList(
+                        withChildren(ItemList,renderName),
+                        getAllPeople);
 
-const PersonList = HocItemList(ListWithChildren, getAllPeople);
+const PlanetList = HocItemList(
+                        withChildren(ItemList,renderName),
+                        getAllPlanets);
 
-const PlanetList = HocItemList(ListWithChildren, getAllPlanets);
-
-const StarshipList = HocItemList(ListWithChildren, getAllStarships);
+const StarshipList = HocItemList(
+                        withChildren(ItemList,renderModelandName),
+                        getAllStarships);
 
 export {
   PersonList,
