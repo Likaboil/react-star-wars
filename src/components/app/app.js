@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './app.css';
 
 import SwapiService from '../../api';
+import {SwapiServiceProvider} from '../swapi-service-context';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
 import ErrorButton from '../error-button';
@@ -29,18 +30,20 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-        <div className="stardb-app">
-          <Header />
-          {planet}
-          <div className="row mb2 button-row">
-            <button className="toggle-planet btn btn-warning btn-lg"
-              onClick={this.toggleRandomPlanet} >
-              Toggle Random Planet
-            </button>
-            <ErrorButton />
+        <SwapiServiceProvider value={this.swapiService}>
+          <div className="stardb-app">
+            <Header />
+            {planet}
+            <div className="row mb2 button-row">
+              <button className="toggle-planet btn btn-warning btn-lg"
+                onClick={this.toggleRandomPlanet} >
+                Toggle Random Planet
+              </button>
+              <ErrorButton />
+            </div>
+            <PeoplePage />
           </div>
-          <PeoplePage />
-        </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
