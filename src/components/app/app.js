@@ -24,6 +24,11 @@ export default class App extends Component {
     });
   };
 
+
+  onServiceChange = () => {
+      console.log('switch');
+  }
+
   render() {
     const planet = this.state.showRandomPlanet ? <PlanetRandom /> :  null;
 
@@ -31,7 +36,7 @@ export default class App extends Component {
       <ErrorBoundry>
         <SwapiServiceProvider value={this.state.swapiService}>
           <div className="stardb-app">
-            <Header />
+            <Header  onServiceChange={this.onServiceChange}/>
             {planet}
             <div className="row mb2 button-row">
               <button className="toggle-planet btn btn-warning btn-lg"
