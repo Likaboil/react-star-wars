@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner';
 
-const withItemList = (ElementList, getData) => {
+const withItemList = (ElementList) => {
   return class extends Component {
     state = {
       listData: null,
     }
 
     componentDidMount() {
-      getData()
+      this.props.getData()
         .then((listData) => {
           this.setState({
             listData
