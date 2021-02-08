@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner';
 
-const HocItemList = (ElementList, getData) => {
+const withItemList = (ElementList, getData) => {
   return class extends Component {
     state = {
       listData: null,
@@ -28,4 +28,4 @@ const HocItemList = (ElementList, getData) => {
   };
 };
 
-export default HocItemList;
+export default withItemList;

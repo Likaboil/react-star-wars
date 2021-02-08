@@ -1,3 +1,3 @@
-import HocItemList from './hoc-item-list';
+import withItemList from './with-item-list';
 
-export default HocItemList;
+export default withItemList;
