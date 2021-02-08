@@ -3,17 +3,24 @@ import ItemDetails from '../item-details';
 import Content from '../item-details-content';
 import {withSwapiService} from '../hoc';
 
-const PlanetDetails =  ({itemId, swapiService}) => {
-  const {getPlanet, getPlanetImage}= swapiService;
+const mapMethodsToProps = (swapiService) => {
+
+  return {
+    getData: swapiService.getPlanet,
+    getImageUrl: swapiService.getPlanetImage
+  };
+};
+
+const PlanetDetails =  ({itemId, getData, getImageUrl}) => {
 
   return (
     <ItemDetails itemId={itemId}
-        getData={getPlanet}
-        getImageUrl={getPlanetImage} >
+        getData={getData}
+        getImageUrl={getImageUrl} >
       <Content field="diameter" label="Diameter" />
       <Content field="population" label="Population" />
     </ItemDetails>
   );
 };
 
-export default withSwapiService(PlanetDetails);
+export default withSwapiService(PlanetDetails, mapMethodsToProps);
