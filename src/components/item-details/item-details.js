@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SwapiService from '../../api';
 import ErrorButton from '../error-button';
 import Spinner from '../spinner';
 
@@ -7,7 +6,6 @@ import './item-details.css';
 
 export default class ItemDetails extends Component {
 
-  swapiService = new SwapiService()
 
   state = {
     item: null,
