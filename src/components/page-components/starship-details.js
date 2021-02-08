@@ -11,12 +11,10 @@ const mapMethodsToProps = (swapiService) => {
   };
 };
 
-const StarshipDetails = ({itemId, getData, getImageUrl}) => {
+const StarshipDetails = (props) => {
 
   return (
-    <ItemDetails itemId={itemId}
-        getData={getData}
-        getImageUrl={getImageUrl} >
+    <ItemDetails {...props} >
       <Content field="model " label="Model" />
       <Content field="length" label="Length" />
     </ItemDetails>
