@@ -21,20 +21,11 @@ export default class StarshipPage extends Component {
   render() {
     const {selectedStarship} = this.state;
 
-    const itemList = (
-      <ErrorBoundry >
-        <StarshipList onItemSelected={this.onStarshipSelected} />
-      </ErrorBoundry>
-    );
-
-    const itemDetails = (
-      <ErrorBoundry>
-        <StarshipDetails itemId={selectedStarship} />
-      </ErrorBoundry>
-    );
     return (
       <ErrorBoundry>
-        <Row left={itemList} right={itemDetails} />
+        <Row
+          left={<StarshipList onItemSelected={this.onStarshipSelected} />}
+          right={<StarshipDetails itemId={selectedStarship} />} />
       </ErrorBoundry>
     );
   }

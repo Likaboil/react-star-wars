@@ -16,20 +16,11 @@ export default class PlanetPage extends Component {
   render() {
     const {selectedPlanet} = this.state;
 
-    const itemList = (
-      <ErrorBoundry >
-        <PlanetList onItemSelected={this.onPlanetSelected} />
-      </ErrorBoundry>
-    );
-
-    const itemDetails = (
-      <ErrorBoundry>
-        <PlanetDetails itemId={selectedPlanet} />
-      </ErrorBoundry>
-    );
     return (
       <ErrorBoundry>
-        <Row left={itemList} right={itemDetails} />
+        <Row
+          left={<PlanetList onItemSelected={this.onPlanetSelected} />}
+          right={<PlanetDetails itemId={selectedPlanet} />} />
       </ErrorBoundry>
     );
   }
