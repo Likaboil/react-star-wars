@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
 
-import SwapiService from '../../api';
+import {SwapiService, TestSwapiService} from '../../api';
 import {SwapiServiceProvider} from '../swapi-service-context';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
@@ -11,10 +11,9 @@ import ErrorBoundry from '../error-boundry/';
 
 export default class App extends Component {
 
-  swapiService = new SwapiService()
-
   state = {
     showRandomPlanet: true,
+    swapiService: new TestSwapiService(),
   }
 
   toggleRandomPlanet = () => {
@@ -30,7 +29,7 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-        <SwapiServiceProvider value={this.swapiService}>
+        <SwapiServiceProvider value={this.state.swapiService}>
           <div className="stardb-app">
             <Header />
             {planet}
