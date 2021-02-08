@@ -5,7 +5,7 @@ import {SwapiService, TestSwapiService} from '../../api';
 import {SwapiServiceProvider} from '../swapi-service-context';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
-import PeoplePage from '../people-page';
+import {PeoplePage, PlanetPage, StarshipPage} from '../pages';
 import ErrorBoundry from '../error-boundry/';
 
 export default class App extends Component {
@@ -33,6 +33,8 @@ export default class App extends Component {
             <Header  onServiceChange={this.onServiceChange}/>
             <PlanetRandom />
             <PeoplePage />
+            <PlanetPage />
+            <StarshipPage />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
