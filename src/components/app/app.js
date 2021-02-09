@@ -8,6 +8,8 @@ import PlanetRandom from '../planet-random';
 import {PeoplePage, PlanetPage, StarshipPage} from '../pages';
 import ErrorBoundry from '../error-boundry/';
 
+import {BrowserRouter as Router} from 'react-router-dom';
+
 export default class App extends Component {
 
   state = {
@@ -29,13 +31,15 @@ export default class App extends Component {
     return (
       <ErrorBoundry>
         <SwapiServiceProvider value={this.state.swapiService}>
-          <div className="stardb-app">
-            <Header  onServiceChange={this.onServiceChange}/>
-            <PlanetRandom />
-            <PeoplePage />
-            <PlanetPage />
-            <StarshipPage />
-          </div>
+          <Router>
+            <div className="stardb-app">
+              <Header  onServiceChange={this.onServiceChange}/>
+              <PlanetRandom />
+              <PeoplePage />
+              <PlanetPage />
+              <StarshipPage />
+            </div>
+          </Router>
         </SwapiServiceProvider>
       </ErrorBoundry>
     );
