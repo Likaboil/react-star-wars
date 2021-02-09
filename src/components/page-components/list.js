@@ -8,6 +8,9 @@ import {
   compose
 } from '../hoc';
 
+const renderName = ({name}) => <span>{name}</span>;
+const renderModelandName = ({name, model}) => <span>{name} ({model}</span>;
+
 const mapPersonMethodsToProps = (swapiService) => {
   return {
     getData: swapiService.getAllPeople
@@ -25,9 +28,6 @@ const mapStarshipMethodsToProps = (swapiService) => {
     getData: swapiService.getAllStarships
   };
 };
-
-const renderName = ({name}) => `${name}`;
-const renderModelandName = ({name, model}) => `${name} (${model})`;
 
 const PersonList = compose(withSwapiService(mapPersonMethodsToProps),
                           withItemList,
