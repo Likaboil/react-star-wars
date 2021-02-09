@@ -10,6 +10,18 @@ export default class PlanetRandom extends Component {
     updateInterval: 7000,
   }
 
+  static propTypes = {
+    updateInterval: (props, propName, componentName) => {
+      const value = props[propName];
+
+      if (typeof value === 'number' && !isNaN(value)) {
+        return null;
+      }
+
+      return new TypeError(`${componentName}: ${propName} must be number`);
+    }
+  };
+
   swapiService = new SwapiService();
 
   state = {
