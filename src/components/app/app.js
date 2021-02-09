@@ -1,42 +1,43 @@
 import React, { Component } from 'react';
 import './app.css';
 
+import {SwapiService, TestSwapiService} from '../../api';
+import {SwapiServiceProvider} from '../swapi-service-context';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
-import ErrorButton from '../error-button';
-import PeoplePage from '../people-page';
-
+import {PeoplePage, PlanetPage, StarshipPage} from '../pages';
+import ErrorBoundry from '../error-boundry/';
 
 export default class App extends Component {
 
   state = {
-    showRandomPlanet: true,
-  };
+    swapiService: new SwapiService(),
+  }
 
-  toggleRandomPlanet = () => {
-    this.setState((state) => {
+  onServiceChange = () => {
+    this.setState(({ swapiService }) => {
+
+      const Service = swapiService instanceof SwapiService ?
+                        TestSwapiService : SwapiService;
       return {
-        showRandomPlanet: !state.showRandomPlanet
-      }
+        swapiService: new Service()
+      };
     });
-  };
+  }
 
   render() {
-    const planet = this.state.showRandomPlanet ? <PlanetRandom /> :  null;
-
     return (
-      <div className="stardb-app">
-        <Header />
-        {planet}
-        <div className="row mb2 button-row">
-          <button className="toggle-planet btn btn-warning btn-lg"
-            onClick={this.toggleRandomPlanet} >
-            Toggle Random Planet
-          </button>
-          <ErrorButton />
-        </div>
-        <PeoplePage />
-      </div>
+      <ErrorBoundry>
+        <SwapiServiceProvider value={this.state.swapiService}>
+          <div className="stardb-app">
+            <Header  onServiceChange={this.onServiceChange}/>
+            <PlanetRandom />
+            <PeoplePage />
+            <PlanetPage />
+            <StarshipPage />
+          </div>
+        </SwapiServiceProvider>
+      </ErrorBoundry>
     );
   }
 };
