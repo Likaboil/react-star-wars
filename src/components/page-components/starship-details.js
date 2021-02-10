@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ItemDetails from '../item-details';
 import Content from '../item-details-content';
 import {withSwapiService} from '../hoc';

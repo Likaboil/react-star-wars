@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ErrorIndicator from '../error-indicator';
 import Spinner from '../spinner';
 
 const withItemList = (ElementList) => {
+
   return class extends Component {
+
     state = {
       listData: null,
       loading: true,

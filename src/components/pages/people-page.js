@@ -3,7 +3,10 @@ import {withRouter} from 'react-router';
 
 import Row from '../row';
 import ErrorBoundry from '../error-boundry';
-import {PersonList, PersonDetails} from '../page-components';
+import {
+  PersonList,
+  PersonDetails
+} from '../page-components';
 
 const PeoplePage = ({history, match}) => {
 

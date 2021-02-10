@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './app.css';
 
-import {SwapiService, TestSwapiService} from '../../api';
+import {
+  SwapiService,
+  TestSwapiService
+} from '../../api';
 import {SwapiServiceProvider} from '../swapi-service-context';
+
+import ErrorBoundry from '../error-boundry/';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
-import {PeoplePage, PlanetPage, StarshipsPage} from '../pages';
-import ErrorBoundry from '../error-boundry/';
-
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { StarshipDetails } from '../page-components';
+import {StarshipDetails} from '../page-components';
+import {
+  PeoplePage,
+  PlanetPage,
+  StarshipsPage
+} from '../pages';
 
 export default class App extends Component {
 
