@@ -1,7 +1,9 @@
 import React from 'react';
 
-import ItemDetails from '../item-details';
-import Content from '../item-details-content';
+import {
+  ItemDetails,
+  Content
+} from '../item-details';
 import {withSwapiService} from '../hoc';
 
 const mapMethodsToProps = (swapiService) => {
