@@ -15,6 +15,7 @@ import {StarshipDetails} from '../page-components';
 import {
   PeoplePage,
   PlanetPage,
+  SecretPage,
   StarshipsPage
 } from '../pages';
 
@@ -54,6 +55,7 @@ export default class App extends Component {
 
                   return (<StarshipDetails itemId={id}/>)
                 }} />
+                <Route path='/secret' component={SecretPage} />
             </div>
           </Router>
         </SwapiServiceProvider>
