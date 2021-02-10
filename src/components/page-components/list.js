@@ -9,7 +9,6 @@ import {
 } from '../hoc';
 
 const renderName = ({name}) => <span>{name}</span>;
-const renderModelandName = ({name, model}) => <span>{name} ({model}</span>;
 
 const mapPersonMethodsToProps = (swapiService) => {
   return {
@@ -41,7 +40,7 @@ const PlanetList = compose(withSwapiService(mapPlanetMethodsToProps),
 
 const StarshipList =compose(withSwapiService(mapStarshipMethodsToProps),
                             withItemList,
-                            withChildFunction(renderModelandName)
+                            withChildFunction(renderName)
                             )(ItemList);
 
 export {

@@ -17,6 +17,7 @@ const StarshipDetails = (props) => {
     <ItemDetails {...props} >
       <Content field="model" label="Model" />
       <Content field="length" label="Length" />
+      <Content field="costInCredits" label="Cost" />
     </ItemDetails>
   );
 };
