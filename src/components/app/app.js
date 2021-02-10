@@ -56,8 +56,16 @@ export default class App extends Component {
 
                   return (<StarshipDetails itemId={id}/>)
                 }} />
-              <Route path='/login' component={LoginPage} />
-              <Route path='/secret' component={SecretPage} />
+              <Route path="/login"
+                render={() => (
+                  <LoginPage isLoggedIn={false}
+                  onLogin={()=> {}}
+                  />
+                )} />
+              <Route path="/secret"
+                render={() => (
+                  <SecretPage isLoggedIn={false}/>
+                )} />
             </div>
           </Router>
         </SwapiServiceProvider>
