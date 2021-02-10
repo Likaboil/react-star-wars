@@ -1,9 +1,10 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 const LoginPage = ({isLoggedIn, onLogin}) => {
 
   if (isLoggedIn) {
-    return <p> Logged</p>
+    return <Redirect to="/"/>;
   }
 
   return (
