@@ -13,6 +13,7 @@ import Header from '../header';
 import PlanetRandom from '../planet-random';
 import {StarshipDetails} from '../page-components';
 import {
+  LoginPage,
   PeoplePage,
   PlanetPage,
   SecretPage,
@@ -55,7 +56,8 @@ export default class App extends Component {
 
                   return (<StarshipDetails itemId={id}/>)
                 }} />
-                <Route path='/secret' component={SecretPage} />
+              <Route path='/login' component={LoginPage} />
+              <Route path='/secret' component={SecretPage} />
             </div>
           </Router>
         </SwapiServiceProvider>
