@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ErrorBoundry from '../error-boundry';
 import ErrorButton from '../error-button';
 import Spinner from '../spinner';
 
@@ -71,20 +72,22 @@ export default class ItemDetails extends Component {
     const {name} = item;
 
     return (
-      <div className="item-details card">
-        <img className="item-image"
-          src={image}
-          alt={name} />
-        <div className="card-body">
-          <h4>{name}</h4>
-          <ul className="list-group list-group-flush">
-            {React.Children.map(this.props.children, (child) => {
-              return React.cloneElement(child, {item});
-            })}
-          </ul>
-          <ErrorButton />
+      <ErrorBoundry>
+        <div className="item-details card">
+          <img className="item-image"
+            src={image}
+            alt={name} />
+          <div className="card-body">
+            <h4>{name}</h4>
+            <ul className="list-group list-group-flush">
+              {React.Children.map(this.props.children, (child) => {
+                return React.cloneElement(child, {item});
+              })}
+            </ul>
+            <ErrorButton />
+          </div>
         </div>
-      </div>
+      </ErrorBoundry>
     )
   }
 }

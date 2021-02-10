@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './item-list.css';
+import ErrorBoundry from '../error-boundry';
 
 const ItemList = (props) => {
 
@@ -21,9 +22,12 @@ const ItemList = (props) => {
   });
 
   return (
-    <ul className="item-list list-group">
-      {items}
-    </ul>
+    <ErrorBoundry>
+      <ul className="item-list list-group">
+        {items}
+      </ul>
+    </ErrorBoundry>
+
   );
 };
 
