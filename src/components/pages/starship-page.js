@@ -1,15 +1,18 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import ErrorBoundry from '../error-boundry';
 import {StarshipList} from '../page-components';
 
-const StarshipsPage = () => {
+const StarshipsPage = ({history}) => {
 
   return (
     <ErrorBoundry>
       <StarshipList
-        onItemSelected={() => {}} />
+        onItemSelected={(itemId) => {
+          history.push(`starships/${itemId}`);
+        }} />
     </ErrorBoundry>
   );
 }
 
-export default StarshipsPage;
+export default withRouter(StarshipsPage);
