@@ -15,7 +15,7 @@ const StarshipDetails = (props) => {
 
   return (
     <ItemDetails {...props} >
-      <Content field="model " label="Model" />
+      <Content field="model" label="Model" />
       <Content field="length" label="Length" />
     </ItemDetails>
   );

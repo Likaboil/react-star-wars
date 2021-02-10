@@ -44,11 +44,11 @@ const withItemList = (ElementList) => {
     render() {
       const {listData, loading, error} = this.state;
 
-      if(loading) {
+      if (loading) {
         return <Spinner />;
       };
 
-      if(error) {
+      if (error) {
         return <ErrorIndicator />;
       };
 
