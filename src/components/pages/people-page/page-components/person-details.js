@@ -3,8 +3,10 @@ import React from 'react';
 import {
   ItemDetails,
   Content
-} from '../item-details';
-import {withSwapiService} from '../hoc';
+} from '../../../item-details'
+import {
+  withSwapiService
+} from '../../../hoc';
 
 const mapMethodsToProps = (swapiService) => {
 
@@ -23,6 +25,6 @@ const PersonDetails = (props) => {
       <Content field="birthYear" label="Birth Year" />
     </ItemDetails>
   );
-};
+}
 
 export default withSwapiService(mapMethodsToProps)(PersonDetails);

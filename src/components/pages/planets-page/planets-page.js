@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import Row from '../row';
-import ErrorBoundry from '../error-boundry';
+import Row from '../../row';
+import ErrorBoundry from '../../error-boundry';
 import {
   PlanetList,
   PlanetDetails
-} from '../page-components';
+} from './page-components';
 
-export default class PlanetPage extends Component {
+export default class PlanetsPage extends Component {
 
   state = {
     selectedPlanet: null

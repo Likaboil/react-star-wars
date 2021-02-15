@@ -1,12 +1,12 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
-import Row from '../row';
-import ErrorBoundry from '../error-boundry';
+import Row from '../../row';
+import ErrorBoundry from '../../error-boundry';
 import {
   PersonList,
   PersonDetails
-} from '../page-components';
+} from './page-components';
 
 const PeoplePage = ({history, match}) => {
 

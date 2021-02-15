@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {withRouter} from 'react-router';
-import ErrorBoundry from '../error-boundry';
-import {StarshipList} from '../page-components';
+import ErrorBoundry from '../../error-boundry';
+import {StarshipList} from './page-components';
 
 const StarshipsPage = ({history}) => {
 
