@@ -16,6 +16,8 @@ const mapPlanetMethodsToProps = (swapiService) => {
   };
 };
 
+// compose implements composition
+
 const PlanetList = compose(
                       withSwapiService(mapPlanetMethodsToProps),
                       withItemList,

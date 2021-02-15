@@ -2,6 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './header.css';
 
+/* onServiceChange is function
+ * sets in props at App
+ * notifies about the need to change api-service
+ */
+
 const Header = ({onServiceChange}) => {
 
   return (

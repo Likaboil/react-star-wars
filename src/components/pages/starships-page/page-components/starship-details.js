@@ -19,6 +19,11 @@ const mapMethodsToProps = (swapiService) => {
 
 const StarshipDetails = (props) => {
 
+  /* <Content /> is used as children through cloning of elements
+  * Check ItemDetailes to know how it work
+  * props: itemId, getData and getImageUrl
+  */
+
   return (
     <ItemDetails {...props} >
       <Content field="model" label="Model" />

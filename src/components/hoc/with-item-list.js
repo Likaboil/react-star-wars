@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import ErrorIndicator from '../error-indicator';
 import Spinner from '../spinner';
 
+// ItemList logic
+
 const withItemList = (ElementList) => {
 
   return class extends Component {

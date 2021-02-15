@@ -16,6 +16,7 @@ const mapStarshipMethodsToProps = (swapiService) => {
   };
 };
 
+// compose implements composition
 
 const StarshipList =compose(
                         withSwapiService(mapStarshipMethodsToProps),

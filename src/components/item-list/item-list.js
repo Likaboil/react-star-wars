@@ -6,6 +6,13 @@ import ErrorBoundry from '../error-boundry';
 
 const ItemList = (props) => {
 
+  /* props sets in list at each pages
+  *  props is result of applying HOC:
+  *  listData sets with HOC withItemList
+  *  onItemSelected sets in each pages
+  *  chidren to render labels sets with HOC withChildFunction
+  */
+
   const {listData, onItemSelected, children: renderLabel} = props;
 
   const items = listData.map((item) => {

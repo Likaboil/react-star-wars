@@ -33,6 +33,9 @@ export default class ItemDetails extends Component {
   }
 
   updateItem() {
+
+    //Gets Id in each page from list.
+
     const {itemId, getData, getImageUrl} = this.props;
 
     if(!itemId) {
@@ -71,6 +74,13 @@ export default class ItemDetails extends Component {
     };
 
     const {name} = item;
+
+    /* React.Children.map() cycle to work with child components easier
+    * this.props.children - array of children
+    * child - each item in childern
+    * React.cloneElement(child, {item}) - creates modified copies and adds new property item.
+    * Field and label sets in Content
+    */
 
     return (
       <ErrorBoundry>

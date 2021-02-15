@@ -16,6 +16,8 @@ const mapPersonMethodsToProps = (swapiService) => {
   };
 };
 
+// compose implements composition
+
 const PersonList = compose(
                       withSwapiService(mapPersonMethodsToProps),
                       withItemList,
