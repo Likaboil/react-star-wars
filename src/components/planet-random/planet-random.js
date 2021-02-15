@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import './planet-random.css';
 
 import {SwapiService} from '../../api';
 import ErrorIndicator from '../error-indicator';
 import Spinner from '../spinner';
-import './planet-random.css';
 
 export default class PlanetRandom extends Component {
 

@@ -1,7 +1,13 @@
 import React from 'react';
-import ItemDetails from '../item-details';
-import Content from '../item-details-content';
-import {withSwapiService} from '../hoc';
+
+import {
+  ItemDetails,
+  Content
+} from '../../../item-details';
+
+import {
+  withSwapiService
+} from '../../../hoc';
 
 const mapMethodsToProps = (swapiService) => {
 
@@ -13,10 +19,16 @@ const mapMethodsToProps = (swapiService) => {
 
 const StarshipDetails = (props) => {
 
+  /* <Content /> is used as children through cloning of elements
+  * Check ItemDetailes to know how it work
+  * props: itemId, getData and getImageUrl
+  */
+
   return (
     <ItemDetails {...props} >
-      <Content field="model " label="Model" />
+      <Content field="model" label="Model" />
       <Content field="length" label="Length" />
+      <Content field="costInCredits" label="Cost" />
     </ItemDetails>
   );
 };

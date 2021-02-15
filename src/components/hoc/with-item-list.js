@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ErrorIndicator from '../error-indicator';
 import Spinner from '../spinner';
 
+// ItemList logic
+
 const withItemList = (ElementList) => {
+
   return class extends Component {
+
     state = {
       listData: null,
       loading: true,
@@ -44,11 +48,11 @@ const withItemList = (ElementList) => {
     render() {
       const {listData, loading, error} = this.state;
 
-      if(loading) {
+      if (loading) {
         return <Spinner />;
       };
 
-      if(error) {
+      if (error) {
         return <ErrorIndicator />;
       };
 

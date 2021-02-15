@@ -1,3 +1,4 @@
 import ItemDetails from './item-details';
+import Content from './item-details-content';
 
-export default ItemDetails;
+export {ItemDetails, Content};

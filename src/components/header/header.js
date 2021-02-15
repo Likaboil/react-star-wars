@@ -1,22 +1,34 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import './header.css';
 
+/* onServiceChange is function
+ * sets in props at App
+ * notifies about the need to change api-service
+ */
+
 const Header = ({onServiceChange}) => {
+
   return (
     <div className="header d-flex">
       <h3>
-        <a href="#main">Star DB</a>
+        <Link to="/">Star DB</Link>
       </h3>
       <ul className="d-flex">
         <li>
-          <a href="#people">People</a>
+          <Link to="/people/">People</Link>
         </li>
         <li>
-          <a href="#planets">Planets</a>
+          <Link to="/planets/">Planets</Link>
         </li>
         <li>
-          <a href="#starships">Starships</a>
+          <Link to="/starships/">Starships</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/secret">Secret</Link>
         </li>
       </ul>
       <button
