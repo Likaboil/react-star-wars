@@ -29,4 +29,5 @@
 .header button {
   margin-top: 4px;
   height: 2.2rem;
+  white-space: nowrap;
 }
