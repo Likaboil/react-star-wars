@@ -15,13 +15,13 @@ import {SwapiServiceProvider} from '../swapi-service-context';
 import ErrorBoundry from '../error-boundry/';
 import Header from '../header';
 import PlanetRandom from '../planet-random';
-import {StarshipDetails} from '../page-components';
 import {
   LoginPage,
   PeoplePage,
-  PlanetPage,
+  PlanetsPage,
   SecretPage,
-  StarshipsPage
+  StarshipsPage,
+  StarshipDetails
 } from '../pages';
 
 export default class App extends Component {
@@ -62,7 +62,7 @@ export default class App extends Component {
                 <Route path="/" exact
                       render={() => <h2>Welcome to StarDB</h2>} />
                 <Route path="/people/:id?" component={PeoplePage} />
-                <Route path="/planets" component={PlanetPage} />
+                <Route path="/planets" component={PlanetsPage} />
                 <Route path="/starships" exact component={StarshipsPage} />
                 <Route path="/starships/:id"
                   render={({match}) => {
