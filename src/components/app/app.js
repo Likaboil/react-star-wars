@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -38,7 +38,7 @@ export default class App extends Component {
   };
 
   onServiceChange = () => {
-    this.setState(({ swapiService }) => {
+    this.setState(({swapiService}) => {
 
       const Service = swapiService instanceof SwapiService ?
                         TestSwapiService : SwapiService;
@@ -49,7 +49,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.state;
+    const {isLoggedIn} = this.state;
 
     return (
       <ErrorBoundry>
@@ -73,12 +73,11 @@ export default class App extends Component {
                 <Route path="/login"
                   render={() => (
                     <LoginPage isLoggedIn={isLoggedIn}
-                    onLogin={this.onLogin}
-                    />
+                                onLogin={this.onLogin} />
                   )} />
                 <Route path="/secret"
                   render={() => (
-                    <SecretPage isLoggedIn={isLoggedIn}/>
+                    <SecretPage isLoggedIn={isLoggedIn} />
                   )} />
 
                 <Route render={() => <h2>Page not found</h2>} />

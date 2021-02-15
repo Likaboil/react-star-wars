@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Row from '../../row';
 import ErrorBoundry from '../../error-boundry';
